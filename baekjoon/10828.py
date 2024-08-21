@@ -1,29 +1,30 @@
 import sys
 
-input = sys.stdin.readline # sys.stdin.readline()과 동일한 속도를 가짐
+input = sys.stdin.readline
 n = int(input())
 
 stack = []
 for _ in range(n):
-    s = input().split()
-    cmd = s[0]
-    if cmd == 'push':
-        num = int(s[1])
-        stack.append(num)
-    elif cmd == 'top':
-        if stack:
-            print(stack[-1])
-        else:
+    t = input().split()
+    order = t[0]
+    
+    if order == "push":
+        x = int(t[1])
+        stack.append(x)
+    elif order == "pop":
+        if len(stack) == 0:
             print(-1)
-    elif cmd == 'size':
+        else:
+           print(stack.pop())
+    elif order == "size":
         print(len(stack))
-    elif cmd == 'empty':
-        if stack: # 리스트 stack이 비어 있으면 false, 비어 있지 않으면 true
-            print(0)
+    elif order == "empty":
+        if len(stack) == 0:
+            print("1")
         else:
-            print(1)
-    elif cmd == 'pop':
-        if stack:
-            print(stack.pop())
-        else:
+            print("0")
+    elif order == "top":
+        if len(stack) == 0:
             print(-1)
+        else:
+           print(stack[-1])

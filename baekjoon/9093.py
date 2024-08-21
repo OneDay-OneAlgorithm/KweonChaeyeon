@@ -1,23 +1,12 @@
 import sys
 
 input = sys.stdin.readline
-T = int(input())
+t = int(input())
 
-count = 1
-
-while count <= T:
-    sentence = input()
+for _ in range(t):
+    line = input().split()
     
-    stack = []
-    reversedSentence = ''
-    
-    for i in sentence:
-        if i == ' ' or i == '\n':
-            while (stack):
-                reversedSentence += stack.pop()
-            reversedSentence += i
-        else:
-            stack.append(i)
-    
-    print(reversedSentence, end = '')
-    count += 1
+    for i in range(len(line)):
+        line[i] = line[i][::-1]
+        
+    print(' '.join(line))
