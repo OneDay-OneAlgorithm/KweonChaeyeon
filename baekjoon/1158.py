@@ -1,4 +1,4 @@
-# O(N * K)
+# # O(N * K)
 # import sys
 
 # input = sys.stdin.readline
@@ -63,3 +63,34 @@ for _ in range(N):
     result.append(list.pop(index))
     
 print('<' + ', '.join(map(str, result)) + '>')
+
+# # 시간 초과
+# import sys
+# from queue import Queue
+
+# input = sys.stdin.readline
+# queue = Queue()
+# temp_queue = Queue()
+
+# n, k = map(int, input().split())
+# for i in range(1, n + 1):
+#     queue.put(i)
+
+# result = []
+# count = 0
+# while not queue.empty() or not temp_queue.empty():
+#     while not queue.empty():
+#         count += 1
+#         e = queue.get()
+#         if count % k == 0:
+#             result.append(e)
+#         else:
+#             temp_queue.put(e)
+#     while not temp_queue.empty():
+#         count += 1
+#         e = temp_queue.get()
+#         if count % k == 0:
+#             result.append(e)
+#         else:
+#             queue.put(e)
+# print('<' + ', '.join(map(str, result)) + '>')
